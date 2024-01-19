@@ -5,6 +5,54 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{30F172C3-6DBE-488D-8629-A6BBCAC821AC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheGoodFramework", "TheGoodFramework", "{069DF9B7-57DD-4E8B-B705-07C14CD49BEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSWB.Common", "GSWB.Common", "{FD4762AC-FAB0-45D8-83B4-325EC0C11B19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSWB.SwarmBot", "GSWB.SwarmBot", "{45D188C4-EB4F-4982-B7AD-0584504C3CA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSWB.APIGateway", "GSWB.APIGateway", "{F3299B21-5400-4135-887B-747142C67E4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSWB.Members", "GSWB.Members", "{A85E68C7-5149-44F4-8A29-C478805666CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7836623F-64BB-4B80-8D6A-F7D5E964A5DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceAwait", "ServiceAwait", "{584C7A70-E8AF-4953-A833-8AE07B91D0C3}"
+	ProjectSection(SolutionItems) = preProject
+		Infrastructure\ServiceAwait\IsReadyServer.sh = Infrastructure\ServiceAwait\IsReadyServer.sh
+		Infrastructure\ServiceAwait\wait_for_service.sh = Infrastructure\ServiceAwait\wait_for_service.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostgreSQL", "PostgreSQL", "{77D7BB2D-E0F3-490D-881F-05110D5B3240}"
+	ProjectSection(SolutionItems) = preProject
+		Infrastructure\PostgreSQL\Dockerfile = Infrastructure\PostgreSQL\Dockerfile
+		Infrastructure\PostgreSQL\Init.sh = Infrastructure\PostgreSQL\Init.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RabbitMQ", "RabbitMQ", "{E6D0C8B1-2E38-49F0-9293-BCF8EFF94A4D}"
+	ProjectSection(SolutionItems) = preProject
+		Infrastructure\RabbitMQ\definitions.json = Infrastructure\RabbitMQ\definitions.json
+		Infrastructure\RabbitMQ\docker-entrypoint-override.sh = Infrastructure\RabbitMQ\docker-entrypoint-override.sh
+		Infrastructure\RabbitMQ\Dockerfile = Infrastructure\RabbitMQ\Dockerfile
+		Infrastructure\RabbitMQ\enabled_plugins = Infrastructure\RabbitMQ\enabled_plugins
+		Infrastructure\RabbitMQ\rabbitmq.conf = Infrastructure\RabbitMQ\rabbitmq.conf
+		Infrastructure\RabbitMQ\rabbitmq_init.sh = Infrastructure\RabbitMQ\rabbitmq_init.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consul", "Consul", "{DC13A556-476D-4CB9-B411-05B33A2D07F4}"
+	ProjectSection(SolutionItems) = preProject
+		Infrastructure\Consul\consul_init.sh = Infrastructure\Consul\consul_init.sh
+		Infrastructure\Consul\docker-entrypoint-override.sh = Infrastructure\Consul\docker-entrypoint-override.sh
+		Infrastructure\Consul\Dockerfile = Infrastructure\Consul\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vault", "Vault", "{CCCEA133-8A77-4CCD-A05D-4B8D6D18C221}"
+	ProjectSection(SolutionItems) = preProject
+		Infrastructure\Vault\docker-entrypoint-override.sh = Infrastructure\Vault\docker-entrypoint-override.sh
+		Infrastructure\Vault\Dockerfile = Infrastructure\Vault\Dockerfile
+		Infrastructure\Vault\vault_init.sh = Infrastructure\Vault\vault_init.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +66,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{584C7A70-E8AF-4953-A833-8AE07B91D0C3} = {7836623F-64BB-4B80-8D6A-F7D5E964A5DB}
+		{77D7BB2D-E0F3-490D-881F-05110D5B3240} = {7836623F-64BB-4B80-8D6A-F7D5E964A5DB}
+		{E6D0C8B1-2E38-49F0-9293-BCF8EFF94A4D} = {7836623F-64BB-4B80-8D6A-F7D5E964A5DB}
+		{DC13A556-476D-4CB9-B411-05B33A2D07F4} = {7836623F-64BB-4B80-8D6A-F7D5E964A5DB}
+		{CCCEA133-8A77-4CCD-A05D-4B8D6D18C221} = {7836623F-64BB-4B80-8D6A-F7D5E964A5DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FC22146D-6756-4F4A-9614-10E0071205C2}
