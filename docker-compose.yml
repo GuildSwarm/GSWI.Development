@@ -1,0 +1,125 @@
+version: "3.8"
+
+services:
+
+  ################################
+  # Infrastructure configuration #
+  ################################
+  consul:
+    container_name: consul
+    ports:
+      - 8500:8500 # port for UI/API calls
+      - 8400:8400
+      - 8600:8600
+      - 8600:8600/udp
+    build: 
+      context: .
+      dockerfile: Infrastructure/Consul/Dockerfile
+    mem_limit: 100m
+    restart: on-failure
+    networks:
+        - guildmanagersc
+
+  rabbitmq:
+    container_name: rabbitmq
+    env_file:
+        - .env
+    ports:
+        - 15672:15672 # port for management UI
+        - 5672:5672
+    build: 
+      context: .
+      dockerfile: Infrastructure/RabbitMQ/Dockerfile
+    mem_limit: 200m
+    restart: on-failure
+    networks:
+        - guildmanagersc
+
+  vault:
+      container_name: vault
+      env_file:
+        - .env
+      ports:
+        - 8200:8200
+      environment:
+          VAULT_TOKEN: "${VAULT_TOKEN}" #needed to use the cli on dev
+          VAULT_DEV_ROOT_TOKEN_ID: "${VAULT_TOKEN}"
+      build: 
+        context: .
+        dockerfile: Infrastructure/Vault/Dockerfile
+      mem_limit: 100m
+      restart: on-failure
+      cap_add:
+        - IPC_LOCK
+      networks:
+        - guildmanagersc
+
+  postgres:
+    container_name: postgres
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+    build: 
+      context: .
+      dockerfile: Infrastructure/PostgreSQL/Dockerfile
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    mem_limit: 200m
+    restart: on-failure
+    networks:
+      - guildmanagersc
+  ####################################
+  # Infrastructure configuration end #
+  ####################################
+
+  ###############################
+  # Microservices configuration #
+  ###############################
+  api-gateway:
+    container_name: gswb.api-gateway
+    ports:
+      - 7000:8080
+    env_file:
+      - .env
+    image: gswb.api-gateway:latest
+    mem_limit: 250m
+    restart: on-failure
+    networks:
+      - guildmanagersc
+      
+  swarm-bot:
+    container_name: gswb.swarm-bot
+    env_file:
+      - .env
+    image: gswb.swarm-bot:latest
+    mem_limit: 250m
+    restart: on-failure
+    networks:
+      - guildmanagersc
+  members:
+    container_name: gswb.members
+    env_file:
+      - .env
+    image: gswb.members:latest
+    mem_limit: 250m
+    restart: on-failure
+    networks:
+      - guildmanagersc
+  ###################################
+  # Microservices configuration end #
+  ###################################
+
+########################
+# VOLUMES AND NETWORKS #
+########################
+volumes:
+  pg_data:
+networks:
+  guildmanagersc:
+    external: true
+  nginx-net:
+    external: true
+############################
+# VOLUMES AND NETWORKS END #
+############################
