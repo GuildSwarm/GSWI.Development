@@ -1,7 +1,6 @@
-version: "3.8"
+version: '3.8'
 
 services:
-
   ################################
   # Infrastructure configuration #
   ################################
@@ -82,7 +81,7 @@ services:
       - 7000:8080
     env_file:
       - .env
-    image: gswb.api-gateway:latest
+    image: registry.guildswarm.org/backend-images/api-gateway:latest
     mem_limit: 250m
     restart: on-failure
     networks:
@@ -92,7 +91,7 @@ services:
     container_name: gswb.swarm-bot
     env_file:
       - .env
-    image: gswb.swarm-bot:latest
+    image: registry.guildswarm.org/backend-images/swarm-bot:latest
     mem_limit: 250m
     restart: on-failure
     networks:
@@ -101,14 +100,11 @@ services:
     container_name: gswb.members
     env_file:
       - .env
-    image: gswb.members:latest
+    image: registry.guildswarm.org/backend-images/members:latest
     mem_limit: 250m
     restart: on-failure
     networks:
       - guildmanagersc
-  ###################################
-  # Microservices configuration end #
-  ###################################
 
 ########################
 # VOLUMES AND NETWORKS #
