@@ -10,7 +10,7 @@ declare -a directories=(
 	"GSWB.APIGateway"
 	"GSWB.Members"
 )
-
+start_time=$(date +%s)
 # Iterate over the array of directories
 for directory in "${directories[@]}"; do
     # Check if the directory exists
@@ -19,14 +19,14 @@ for directory in "${directories[@]}"; do
         # Change to the directory
         cd "$directory" || exit
 
-        # Check if deploy.sh exists in this directory
-        if [ -f "deploy.sh" ]; then
-            # Make deploy.sh executable
-            chmod +x deploy.sh
+        # Check if local_deploy.sh exists in this directory
+        if [ -f "local_deploy.sh" ]; then
+            # Make local_deploy.sh executable
+            chmod +x local_deploy.sh
 
-            # Execute deploy.sh
-            echo "Executing deploy.sh in $directory"
-            ./deploy.sh
+            # Execute local_deploy.sh
+            echo "Executing local_deploy.sh in $directory"
+            ./local_deploy.sh
 
             # Return to the original directory
             cd - || exit
@@ -37,6 +37,14 @@ for directory in "${directories[@]}"; do
         echo "Error: Directory '$directory' not found."
     fi
 done
-
+export ENVIRONMENT_TAG=development
 docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up -d
+
+# Record the end time
+end_time=$(date +%s)
+
+# Calculate the total execution time
+total_time=$((end_time - start_time))
+
+echo "Local deploy execution time: $total_time seconds."

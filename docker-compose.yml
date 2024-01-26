@@ -81,7 +81,7 @@ services:
       - 7000:8080
     env_file:
       - .env
-    image: registry.guildswarm.org/backend-images/api-gateway:latest
+    image: "registry.guildswarm.org/${ENVIRONMENT_TAG}/api_gateway:latest" 
     mem_limit: 250m
     restart: on-failure
     networks:
@@ -91,7 +91,7 @@ services:
     container_name: gswb.swarm-bot
     env_file:
       - .env
-    image: registry.guildswarm.org/backend-images/swarm-bot:latest
+    image: "registry.guildswarm.org/${ENVIRONMENT_TAG}/swarm_bot:latest"
     mem_limit: 250m
     restart: on-failure
     networks:
@@ -100,7 +100,7 @@ services:
     container_name: gswb.members
     env_file:
       - .env
-    image: registry.guildswarm.org/backend-images/members:latest
+    image: "registry.guildswarm.org/${ENVIRONMENT_TAG}/members:latest"
     mem_limit: 250m
     restart: on-failure
     networks:
