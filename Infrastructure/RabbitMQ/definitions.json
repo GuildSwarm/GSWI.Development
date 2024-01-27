@@ -1,0 +1,32 @@
+{
+  "users": [],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [],
+  "parameters": [],
+  "policies": [
+	{"vhost":"/","name":"DLX","pattern":".*","apply-to":"queues","definition":{"dead-letter-exchange":"dead-letter.exchange"},"priority":0}
+  ],
+  "queues": [
+  	{"name":"api-gateway.queue","vhost":"/","durable":true,"auto_delete":false,"arguments":{}},
+	{"name":"members.queue","vhost":"/","durable":true,"auto_delete":false,"arguments":{}},
+	{"name":"swarm-bot.queue","vhost":"/","durable":true,"auto_delete":false,"arguments":{}},
+	{"name":"dead-letter.queue","vhost":"/","durable":true,"auto_delete":false,"arguments":{}}
+  ],
+  "exchanges": [
+	{"name":"api-gateway.exchange","vhost":"/","type":"direct","durable":true,"auto_delete":false,"internal":false,"arguments":{}},
+	{"name":"members.exchange","vhost":"/","type":"direct","durable":true,"auto_delete":false,"internal":false,"arguments":{}},
+	{"name":"swarm-bot.exchange","vhost":"/","type":"direct","durable":true,"auto_delete":false,"internal":false,"arguments":{}},
+	{"name":"dead-letter.exchange","vhost":"/","type":"fanout","durable":true,"auto_delete":false,"internal":false,"arguments":{}}
+  ],
+  "bindings": [	
+	{"source":"members.exchange","vhost":"/","destination":"api-gateway.queue","destination_type":"queue","routing_key":"member.revoke","arguments":{}},
+	{"source":"members.exchange","vhost":"/","destination":"api-gateway.queue","destination_type":"queue","routing_key":"member.roles.revoke","arguments":{}},
+	{"source":"swarm-bot.exchange","vhost":"/","destination":"members.queue","destination_type":"queue","routing_key":"swarm-bot.members.sync","arguments":{}},
+	{"source":"swarm-bot.exchange","vhost":"/","destination":"members.queue","destination_type":"queue","routing_key":"swarm-bot.roles.sync","arguments":{}},
+	{"source":"dead-letter.exchange","vhost":"/","destination":"dead-letter.queue","destination_type":"queue","arguments":{}}
+  ]
+}

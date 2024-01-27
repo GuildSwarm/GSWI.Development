@@ -1,0 +1,18 @@
+[submodule "Infrastructure/ServiceAwait"]
+	path = Infrastructure/ServiceAwait
+	url = https://github.com/eyagovbusiness/ServiceAwait.git
+[submodule "TheGoodFramework"]
+	path = TheGoodFramework
+	url = https://github.com/eyagovbusiness/TheGoodFramework.git
+[submodule "GSWB.Common"]
+	path = GSWB.Common
+	url = https://github.com/eyagovbusiness/GSWB.Common.git
+[submodule "GSWB.Members"]
+	path = GSWB.Members
+	url = https://github.com/eyagovbusiness/GSWB.Members.git
+[submodule "GSWB.SwarmBot"]
+	path = GSWB.SwarmBot
+	url = https://github.com/eyagovbusiness/GSWB.SwarmBot.git
+[submodule "GSWB.APIGateway"]
+	path = GSWB.APIGateway
+	url = https://github.com/eyagovbusiness/GSWB.APIGateway.git
