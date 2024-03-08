@@ -1,6 +1,5 @@
 #!/bin/bash
 set -eux
 
-Environment=development
-docker build . -t registry.guildswarm.org/$Environment/alpine_base:latest
+docker build . -t registry.guildswarm.org/baseimages/alpine_base:latest
 
