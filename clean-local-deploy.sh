@@ -14,8 +14,13 @@ docker rmi registry.guildswarm.org/$Environment/api_gateway:latest
 docker rmi registry.guildswarm.org/$Environment/common:latest
 docker rmi registry.guildswarm.org/$Environment/the_good_framework:latest
 
-docker rmi registry.guildswarm.org/$Environment/dotnet_base:latest
-docker rmi registry.guildswarm.org/$Environment/alpine_base:latest
+docker rmi registry.guildswarm.org/baseimages/dotnet_base:latest
+docker rmi registry.guildswarm.org/baseimages/alpine_base:latest
+
+docker rmi gswidevelopment-consul
+docker rmi gswidevelopment-postgres
+docker rmi gswidevelopment-rabbitmq
+docker rmi gswidevelopment-vault
 
 end_time=$(date +%s)
 
