@@ -21,7 +21,7 @@ vault kv put secret/postgres Username=$POSTGRES_USER Password=$POSTGRES_PASSWORD
 ##DiscordAuth
 vault kv put secret/discordauth ClientId=$DISCORD_ID ClientSecret=$DISCORD_SECRET && echo "discord client credentials were set!"
 ##DiscordBot
-vault kv put secret/swarmbot BotToken=$MandrilBot_TOKEN DiscordTargetGuildId=$MandrilBot_GUILD_ID && echo "mandrilbot secrets were set!"
+vault kv put secret/swarmbot BotToken=$SwarmBot_TOKEN DiscordTargetGuildId=$SwarmBot_GUILD_ID TestersDiscordTargetGuildId=$SwarmBot_TESTERS_GUILD_ID && echo "SwarmBot secrets were set!"
 ##API authentication secret token
 vault kv put secret/tokensecrets AccessToken=$API_PRIV_KEY && echo "API authentication secret token was set!"
 

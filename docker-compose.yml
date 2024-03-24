@@ -5,7 +5,7 @@ services:
   # Infrastructure configuration #
   ################################
   consul:
-    container_name: consul
+    container_name: gswi.consul
     ports:
       - 8500:8500 # port for UI/API calls
       - 8400:8400
@@ -20,7 +20,7 @@ services:
         - guildmanagersc
 
   rabbitmq:
-    container_name: rabbitmq
+    container_name: gswi.rabbitmq
     env_file:
         - .env
     ports:
@@ -35,7 +35,7 @@ services:
         - guildmanagersc
 
   vault:
-      container_name: vault
+      container_name: gswi.vault
       env_file:
         - .env
       ports:
@@ -54,7 +54,7 @@ services:
         - guildmanagersc
 
   postgres:
-    container_name: postgres
+    container_name: gswi.postgres
     env_file:
       - .env
     ports:
