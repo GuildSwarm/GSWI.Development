@@ -19,6 +19,11 @@ services:
       context: ./GSWB.Members
       dockerfile: ./src/Members.API/Dockerfile.debug
 
+  events:
+    build: 
+      context: ./GSWB.Events
+      dockerfile: ./src/Events.API/Dockerfile.debug
+
   ###################################
   # Microservices configuration end #
   ###################################

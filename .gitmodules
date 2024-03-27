@@ -16,3 +16,6 @@
 [submodule "GSWB.APIGateway"]
 	path = GSWB.APIGateway
 	url = https://github.com/eyagovbusiness/GSWB.APIGateway.git
+[submodule "GSWB.Events"]
+	path = GSWB.Events
+	url = https://github.com/GuildSwarm/GSWB.Events

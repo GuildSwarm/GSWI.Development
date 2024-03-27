@@ -105,6 +105,15 @@ services:
     restart: on-failure
     networks:
       - guildmanagersc
+  events:
+    container_name: gswb.events
+    env_file:
+      - .env
+    image: "registry.guildswarm.org/development/events:latest"
+    mem_limit: 250m
+    restart: on-failure
+    networks:
+      - guildmanagersc
 
 ########################
 # VOLUMES AND NETWORKS #
