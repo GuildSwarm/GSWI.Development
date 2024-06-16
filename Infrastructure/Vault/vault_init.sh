@@ -24,6 +24,8 @@ vault kv put secret/discordauth ClientId=$DISCORD_ID ClientSecret=$DISCORD_SECRE
 vault kv put secret/swarmbot BotToken=$SwarmBot_TOKEN DiscordTargetGuildId=$SwarmBot_GUILD_ID TestersDiscordTargetGuildId=$SwarmBot_TESTERS_GUILD_ID && echo "SwarmBot secrets were set!"
 ##API authentication secret token
 vault kv put secret/tokensecrets AccessToken=$API_PRIV_KEY && echo "API authentication secret token was set!"
+##Secrets for encryption
+vault kv put secret/encryptionSecrets Key=$ENCRYPTION_KEY InitializationVector=$ENCRYPTION_IV && echo "encryption secrets were set!"
 
 ##YouTube Api key
 vault kv put secret/youtube ApiKey=$YOUTUBE_API_KEY && echo "youtube secrets were set!"
