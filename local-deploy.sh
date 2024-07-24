@@ -9,6 +9,7 @@ declare -a directories=(
     "GSWB.SwarmBot"
 	"GSWB.APIGateway"
 	"GSWB.Members"
+	"GSWB.Events"
 )
 start_time=$(date +%s)
 # Iterate over the array of directories

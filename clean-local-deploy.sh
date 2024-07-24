@@ -7,6 +7,7 @@ start_time=$(date +%s)
 docker-compose -f docker-compose.yml down
 docker image prune --force
 
+docker rmi registry.guildswarm.org/$Environment/events:latest 
 docker rmi registry.guildswarm.org/$Environment/members:latest 
 docker rmi registry.guildswarm.org/$Environment/swarm_bot:latest
 docker rmi registry.guildswarm.org/$Environment/api_gateway:latest
