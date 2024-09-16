@@ -1,6 +1,10 @@
 version: '3.8'
 
 services:
+
+  postgres:
+    volumes:
+    - C:/pg_data:/var/lib/postgresql/data
   ###############################
   # Microservices configuration #
   ###############################
