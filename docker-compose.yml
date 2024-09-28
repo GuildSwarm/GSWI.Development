@@ -80,6 +80,7 @@ services:
     ports:
       - 8080:5000
       - 8443:5001
+      - 7000:8080
     env_file:
       - .env
     image: "registry.guildswarm.org/development/api_gateway:latest" 

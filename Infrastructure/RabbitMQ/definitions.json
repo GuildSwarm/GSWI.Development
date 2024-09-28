@@ -27,6 +27,7 @@
 	{"source":"members.exchange","vhost":"/","destination":"api-gateway.queue","destination_type":"queue","routing_key":"member.roles.revoke","arguments":{}},
 	{"source":"swarm-bot.exchange","vhost":"/","destination":"members.queue","destination_type":"queue","routing_key":"swarm-bot.members.sync","arguments":{}},
 	{"source":"swarm-bot.exchange","vhost":"/","destination":"members.queue","destination_type":"queue","routing_key":"swarm-bot.roles.sync","arguments":{}},
+	{"source":"swarm-bot.exchange","vhost":"/","destination":"members.queue","destination_type":"queue","routing_key":"guilds.sync","arguments":{}},
 	{"source":"dead-letter.exchange","vhost":"/","destination":"dead-letter.queue","destination_type":"queue","arguments":{}}
   ]
 }
