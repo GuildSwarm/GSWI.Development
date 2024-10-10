@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheGoodFramework", "TheGoodFramework", "{069DF9B7-57DD-4E8B-B705-07C14CD49BEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSWB.Common", "GSWB.Common", "{FD4762AC-FAB0-45D8-83B4-325EC0C11B19}"
+	ProjectSection(SolutionItems) = preProject
+		GSWB.Members\src\Members.Infrastructure\appsettings.Design.json = GSWB.Members\src\Members.Infrastructure\appsettings.Design.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSWB.SwarmBot", "GSWB.SwarmBot", "{45D188C4-EB4F-4982-B7AD-0584504C3CA8}"
 EndProject
